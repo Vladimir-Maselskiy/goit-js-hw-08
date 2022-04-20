@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/Vladimir-Maselskiy/goit-js-hw-08#readme",
 	"dependencies": {
+		"@vimeo/player": "^2.16.4",
 		"joi": "^17.6.0",
 		"simplelightbox": "^2.10.3"
 	},
