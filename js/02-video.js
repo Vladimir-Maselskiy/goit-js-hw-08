@@ -1,11 +1,12 @@
 const Vimeo = require("@vimeo/player");
+var _throttle = require("lodash.throttle");
 
 const iframe = document.querySelector("iframe");
 let currentTime;
 
 const player = new Vimeo.default(iframe);
 
-player.on("timeupdate", function () {
+const timeUpdate = function () {
 	player
 		.getCurrentTime()
 		.then(function (seconds) {
@@ -16,7 +17,9 @@ player.on("timeupdate", function () {
 	if (!isNaN(currentTime)) {
 		localStorage.setItem("videoplayer-current-time", String(currentTime));
 	}
-});
+};
+
+player.on("timeupdate", _throttle(timeUpdate, 1000));
 
 player.getVideoTitle().then(function (title) {
 	console.log("title:", title);
