@@ -12,8 +12,10 @@ let formDataInput = {};
 if (localStorage.getItem("feedback-form-state")) {
 	const markupJSON = localStorage.getItem("feedback-form-state");
 	formDataInput = JSON.parse(markupJSON);
-	refs.input.value = formDataInput.email;
-	refs.textarea.value = formDataInput.message;
+
+	if (formDataInput.email) refs.input.value = formDataInput.email;
+
+	if (formDataInput.message) refs.textarea.value = formDataInput.message;
 }
 
 const onInput = (event) => {

@@ -573,8 +573,8 @@ var formDataInput = {};
 if (localStorage.getItem("feedback-form-state")) {
   var markupJSON = localStorage.getItem("feedback-form-state");
   formDataInput = JSON.parse(markupJSON);
-  refs.input.value = formDataInput.email;
-  refs.textarea.value = formDataInput.message;
+  if (formDataInput.email) refs.input.value = formDataInput.email;
+  if (formDataInput.message) refs.textarea.value = formDataInput.message;
 }
 
 var onInput = function onInput(event) {
@@ -619,7 +619,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62768" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58210" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
