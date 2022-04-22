@@ -579,8 +579,7 @@ if (localStorage.getItem("feedback-form-state")) {
 
 var onInput = function onInput(event) {
   formDataInput[event.target.name] = event.target.value;
-  var markupJSON = JSON.stringify(formDataInput); // console.log(markupJSON);
-
+  var markupJSON = JSON.stringify(formDataInput);
   localStorage.setItem("feedback-form-state", markupJSON);
 };
 
@@ -589,6 +588,7 @@ refs.button.addEventListener("click", function (event) {
   event.preventDefault();
   console.log(formDataInput);
   refs.form.reset();
+  formDataInput = {};
   localStorage.removeItem("feedback-form-state");
 });
 },{"lodash.throttle":"node_modules/lodash.throttle/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -619,7 +619,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56720" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62768" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

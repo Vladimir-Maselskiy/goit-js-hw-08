@@ -19,7 +19,6 @@ if (localStorage.getItem("feedback-form-state")) {
 const onInput = (event) => {
 	formDataInput[event.target.name] = event.target.value;
 	const markupJSON = JSON.stringify(formDataInput);
-	// console.log(markupJSON);
 	localStorage.setItem("feedback-form-state", markupJSON);
 };
 refs.form.addEventListener("input", _throttle(onInput, 500));
@@ -28,5 +27,6 @@ refs.button.addEventListener("click", (event) => {
 	event.preventDefault();
 	console.log(formDataInput);
 	refs.form.reset();
+	formDataInput = {};
 	localStorage.removeItem("feedback-form-state");
 });
